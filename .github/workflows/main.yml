@@ -35,7 +35,7 @@ jobs:
           Get-ChildItem 'Env:\'
 
       - run: |
-          Get-Command 'python'
+          Get-Command 'python' | FL
           python --version
 
       - name: Install MSVC compiler
@@ -49,7 +49,7 @@ jobs:
           Get-ChildItem 'Env:\'
 
       - run: |
-          Get-Command 'python'
+          Get-Command 'python' | FL
           python --version
 
       - name: Installing Qt - ${{ matrix.arch }}
