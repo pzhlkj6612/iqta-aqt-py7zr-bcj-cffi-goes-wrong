@@ -52,6 +52,12 @@ jobs:
           Get-Command 'python' | FL
           python --version
 
+      - run: |
+          "Platform=" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+  
+      - run: |
+          Get-ChildItem 'Env:\' | FL
+
       - name: Installing Qt - ${{ matrix.arch }}
         uses: jurplel/install-qt-action@v2
         with:
