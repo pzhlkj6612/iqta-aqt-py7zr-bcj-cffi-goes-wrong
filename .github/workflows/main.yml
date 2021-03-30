@@ -30,6 +30,28 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: "recursive"
+  
+      - run: |
+          Get-ChildItem 'Env:\'
+
+      - run: |
+          Get-Command 'python'
+          python --version
+
+      - name: Install MSVC compiler
+        uses: ilammy/msvc-dev-cmd@v1.7.0
+        with:
+          # 14.1 is for vs2017, 14.2 is vs2019, following the upstream vcpkg build from Qv2ray-deps repo
+          toolset: 14.2
+          arch: ${{ matrix.arch }}
+  
+      - run: |
+          Get-ChildItem 'Env:\'
+
+      - run: |
+          Get-Command 'python'
+          python --version
+
       - name: Installing Qt - ${{ matrix.arch }}
         uses: jurplel/install-qt-action@v2
         with:
