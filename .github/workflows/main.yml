@@ -10,17 +10,33 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        qt_version: [5.14.2]
+        platform: [windows-latest]
+        arch: [x86, x64]
+        include:
+          - platform: windows-latest
+            arch: x86
+            qtarch: win32_msvc2017
+          - platform: windows-latest
+            arch: x64
+            qtarch: win64_msvc2017_64
+
+    runs-on: ${{ matrix.platform }}
 
     steps:
-      - uses: jurplel/install-qt-action@v2
+      - name: Checking out sources
+        uses: actions/checkout@v2
         with:
-          version: 5.14.2
-          arch: win32_msvc2017
-          target: desktop
-          install-deps: true
-          setup-python: true
-          set-env: true
-          tools-only: false
-          aqtversion: ==1.1.3
-          py7zrversion: ==0.14.0
+          submodules: "recursive"
+      - name: Install MSVC compiler
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          toolset: 14.2
+          arch: ${{ matrix.arch }}
+      - name: Installing Qt - ${{ matrix.arch }}
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: ${{ matrix.qt_version }}
+          arch: ${{ matrix.qtarch }}
