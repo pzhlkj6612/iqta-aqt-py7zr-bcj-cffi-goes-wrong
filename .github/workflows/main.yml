@@ -32,7 +32,7 @@ jobs:
           submodules: "recursive"
   
       - run: |
-          Get-ChildItem 'Env:\'
+          Get-ChildItem 'Env:\' | FL
 
       - run: |
           Get-Command 'python' | FL
@@ -46,7 +46,7 @@ jobs:
           arch: ${{ matrix.arch }}
   
       - run: |
-          Get-ChildItem 'Env:\'
+          Get-ChildItem 'Env:\' | FL
 
       - run: |
           Get-Command 'python' | FL
