@@ -52,6 +52,9 @@ jobs:
           'VSCMD_ARG_TGT_ARCH=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
           'VSCMD_ARG_VCVARS_VER=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
           'VSCMD_VER=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          
+      - if: false
+        run: |
           'WindowsLibPath=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
           'WindowsSDK_ExecutablePath_x64=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
           'WindowsSDK_ExecutablePath_x86=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
