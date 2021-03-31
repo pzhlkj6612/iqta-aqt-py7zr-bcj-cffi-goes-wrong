@@ -12,7 +12,7 @@ jobs:
   build:
     strategy:
       matrix:
-        VSCMD_ARG_TGT_ARCH: ['', 'x86', 'x64', 'x299', 'b450']
+        python_version: ['3.5', '3.6', '3.7', '3.8', '3.9']
 
     runs-on: windows-latest
 
@@ -23,7 +23,7 @@ jobs:
       # https://github.com/jurplel/install-qt-action/blob/3121d3d574d4f4115a03397ad4a97e38b08deb0c/src/main.ts#L12
       - uses: actions/setup-python@v2
         with:
-          python-version: '>=3.6'
+          python-version: ${{ matrix.python_version }}
           architecture: 'x64'
 
       - run: |
@@ -34,7 +34,7 @@ jobs:
 
       - if: true
         run: |
-          'VSCMD_ARG_TGT_ARCH=${{ matrix.VSCMD_ARG_TGT_ARCH }}' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          'VSCMD_ARG_TGT_ARCH=x86' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
           
       - run: |
           Get-ChildItem 'Env:\'
