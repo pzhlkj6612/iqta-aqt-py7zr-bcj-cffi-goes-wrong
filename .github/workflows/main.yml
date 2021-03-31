@@ -17,7 +17,7 @@ jobs:
           ${Env:\Platform}
 
       - run: |
-          pip install py7zr
+          pip install py7zr==0.14.0
           pip uninstall -y py7zr
 
       - run: |
@@ -27,7 +27,7 @@ jobs:
           ${Env:\Platform}
 
       - run: |
-          pip install py7zr
+          pip install py7zr==0.14.0
           pip uninstall -y py7zr
 
       - run: |
@@ -37,7 +37,7 @@ jobs:
           ${Env:\Platform}
 
       - run: |
-          pip install py7zr
+          pip install py7zr==0.14.0
           pip uninstall -y py7zr
 
       - run: |
@@ -47,7 +47,7 @@ jobs:
           ${Env:\Platform}
 
       - run: |
-          pip install py7zr
+          pip install py7zr==0.14.0
           pip uninstall -y py7zr
 
       - run: |
@@ -57,5 +57,5 @@ jobs:
           ${Env:\Platform}
 
       - run: |
-          pip install py7zr
+          pip install py7zr==0.14.0
           pip uninstall -y py7zr
