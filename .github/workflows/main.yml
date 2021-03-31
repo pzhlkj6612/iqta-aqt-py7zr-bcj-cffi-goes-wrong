@@ -20,6 +20,15 @@ jobs:
       - run: |
           python --version
 
+      # https://github.com/jurplel/install-qt-action/blob/3121d3d574d4f4115a03397ad4a97e38b08deb0c/src/main.ts#L12
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '>=3.6'
+          architecture: 'x64'
+
+      - run: |
+          python --version
+
       - run: |
           Get-ChildItem 'Env:\'
 
