@@ -11,56 +11,21 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    strategy:
+      matrix:
+        platform:
+          - ''  # don't modify
+          - 'Platform=x86'
+          - 'Platform=x64'
+          - 'Platform=x299'
+          - 'Platform='
 
     steps:  
       - run: |
-          ${Env:\Platform}
-
-      - run: |
-          pip install py7zr==0.14.0
-          pip uninstall -y py7zr
-          pip cache purge
-
-      - run: |
-          'Platform=x86' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          '${{ matrix.platform }}' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
       - run: |
           ${Env:\Platform}
 
       - run: |
           pip install py7zr==0.14.0
-          pip uninstall -y py7zr
-          pip cache purge
-
-      - run: |
-          'Platform=x64' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-
-      - run: |
-          ${Env:\Platform}
-
-      - run: |
-          pip install py7zr==0.14.0
-          pip uninstall -y py7zr
-          pip cache purge
-
-      - run: |
-          'Platform=x299' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-
-      - run: |
-          ${Env:\Platform}
-
-      - run: |
-          pip install py7zr==0.14.0
-          pip uninstall -y py7zr
-          pip cache purge
-
-      - run: |
-          'Platform=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-
-      - run: |
-          ${Env:\Platform}
-
-      - run: |
-          pip install py7zr==0.14.0
-          pip uninstall -y py7zr
-          pip cache purge
