@@ -28,4 +28,4 @@ jobs:
           Get-ChildItem 'Env:\'
 
       - run: |
-          pip install aqtinstall==1.1.3
+          python -m pip install aqtinstall==1.1.3
