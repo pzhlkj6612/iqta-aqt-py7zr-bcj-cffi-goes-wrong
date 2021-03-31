@@ -39,6 +39,8 @@ jobs:
           
       - run: |
           Get-ChildItem 'Env:\'
+
+      - run: |
           python -c "import distutils.util
           print(distutils.util.get_platform())"
 
