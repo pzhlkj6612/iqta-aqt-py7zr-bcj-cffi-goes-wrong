@@ -19,6 +19,7 @@ jobs:
       - run: |
           pip install py7zr==0.14.0
           pip uninstall -y py7zr
+          pip cache purge
 
       - run: |
           'Platform=x86' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
@@ -29,6 +30,7 @@ jobs:
       - run: |
           pip install py7zr==0.14.0
           pip uninstall -y py7zr
+          pip cache purge
 
       - run: |
           'Platform=x64' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
@@ -39,6 +41,7 @@ jobs:
       - run: |
           pip install py7zr==0.14.0
           pip uninstall -y py7zr
+          pip cache purge
 
       - run: |
           'Platform=x299' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
@@ -49,6 +52,7 @@ jobs:
       - run: |
           pip install py7zr==0.14.0
           pip uninstall -y py7zr
+          pip cache purge
 
       - run: |
           'Platform=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
@@ -59,3 +63,4 @@ jobs:
       - run: |
           pip install py7zr==0.14.0
           pip uninstall -y py7zr
+          pip cache purge
