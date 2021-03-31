@@ -33,6 +33,14 @@ jobs:
 
       - run: |
           Get-ChildItem 'Env:\'
+          
+      - run: |
+          'INCLUDE=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          'LIB=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          'LIBPATH=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
+      - run: |
+          Get-ChildItem 'Env:\'
 
       - name: Installing Qt - ${{ matrix.arch }}
         uses: jurplel/install-qt-action@v2
