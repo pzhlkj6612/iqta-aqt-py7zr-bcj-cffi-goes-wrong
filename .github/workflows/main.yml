@@ -18,6 +18,9 @@ jobs:
 
     steps:  
       - run: |
+          python --version
+
+      - run: |
           Get-ChildItem 'Env:\'
 
       - if: true
