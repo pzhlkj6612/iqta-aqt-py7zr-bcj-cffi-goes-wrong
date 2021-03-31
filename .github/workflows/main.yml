@@ -34,7 +34,7 @@ jobs:
       - run: |
           Get-ChildItem 'Env:\'
 
-      - if: false
+      - if: true
         run: |
           'VSCMD_ARG_TGT_ARCH=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
           
