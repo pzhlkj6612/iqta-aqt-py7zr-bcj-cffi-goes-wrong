@@ -10,56 +10,52 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        qt_version: [5.14.2]
-        platform: [windows-latest]
-        arch: [x86, x64]
-        include:
-          - platform: windows-latest
-            arch: x86
-            qtarch: win32_msvc2017
-          - platform: windows-latest
-            arch: x64
-            qtarch: win64_msvc2017_64
+    runs-on: windows-latest
 
-    runs-on: ${{ matrix.platform }}
-
-    steps:
-      - name: Checking out sources
-        uses: actions/checkout@v2
-        with:
-          submodules: "recursive"
-  
+    steps:  
       - run: |
-          Get-ChildItem 'Env:\' | FL
+          Get-Item 'Env:\Platform' | FL
 
       - run: |
-          Get-Command 'python' | FL
-          python --version
-
-      - name: Install MSVC compiler
-        uses: ilammy/msvc-dev-cmd@v1.7.0
-        with:
-          # 14.1 is for vs2017, 14.2 is vs2019, following the upstream vcpkg build from Qv2ray-deps repo
-          toolset: 14.2
-          arch: ${{ matrix.arch }}
-  
-      - run: |
-          Get-ChildItem 'Env:\' | FL
+          pip install py7zr
+          pip uninstall -y py7zr
 
       - run: |
-          Get-Command 'python' | FL
-          python --version
+          'Platform=x86' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
       - run: |
-          "Platform=" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-  
-      - run: |
-          Get-ChildItem 'Env:\' | FL
+          Get-Item 'Env:\Platform' | FL
 
-      - name: Installing Qt - ${{ matrix.arch }}
-        uses: jurplel/install-qt-action@v2
-        with:
-          version: ${{ matrix.qt_version }}
-          arch: ${{ matrix.qtarch }}
+      - run: |
+          pip install py7zr
+          pip uninstall -y py7zr
+
+      - run: |
+          'Platform=x64' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
+      - run: |
+          Get-Item 'Env:\Platform' | FL
+
+      - run: |
+          pip install py7zr
+          pip uninstall -y py7zr
+
+      - run: |
+          'Platform=x299' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
+      - run: |
+          Get-Item 'Env:\Platform' | FL
+
+      - run: |
+          pip install py7zr
+          pip uninstall -y py7zr
+
+      - run: |
+          'Platform=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
+      - run: |
+          Get-Item 'Env:\Platform' | FL
+
+      - run: |
+          pip install py7zr
+          pip uninstall -y py7zr
