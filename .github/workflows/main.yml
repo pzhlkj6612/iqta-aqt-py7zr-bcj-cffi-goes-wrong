@@ -33,41 +33,14 @@ jobs:
 
       - run: |
           Get-ChildItem 'Env:\'
-          
-      - run: |
-          'INCLUDE=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          'LIB=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          'LIBPATH=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          
-      - if: false
-        run: |
-          'UCRTVersion=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          'UniversalCRTSdkDir=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          'VCINSTALLDIR=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          'VCToolsInstallDir=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          'VCToolsRedistDir=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          'VCToolsVersion=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          'VisualStudioVersion=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
-      - if: true
-        run: |
+      - run: |
           'VSCMD_ARG_app_plat=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
           'VSCMD_ARG_HOST_ARCH=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
           'VSCMD_ARG_TGT_ARCH=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
           'VSCMD_ARG_VCVARS_VER=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
           'VSCMD_VER=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
           
-      - if: false
-        run: |
-          'WindowsLibPath=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          'WindowsSDK_ExecutablePath_x64=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          'WindowsSDK_ExecutablePath_x86=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          'WindowsSdkBinPath=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          'WindowsSdkDir=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          'WindowsSDKLibVersion=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          'WindowsSdkVerBinPath=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          'WindowsSDKVersion=' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-
       - run: |
           Get-ChildItem 'Env:\'
 
